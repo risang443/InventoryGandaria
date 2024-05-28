@@ -9,3 +9,7 @@ Route::get('/', function () {
 Route::get('/output', function () {
     return view('layout.keluar');
 });
+
+Route::get('/tabelbarang', function () {
+    return view('layout.tabelbarang');
+});
