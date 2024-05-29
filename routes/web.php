@@ -13,3 +13,7 @@ Route::get('/output', function () {
 Route::get('/tabelbarang', function () {
     return view('layout.tabelbarang');
 });
+
+Route::get('/login', function () {
+    return view('login.login');
+});
