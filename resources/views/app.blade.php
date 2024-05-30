@@ -56,13 +56,13 @@
              </button>
              <ul id="dropdown-2" class="hidden py-2 space-y-2">
                    <li>
-                      <a href="/output" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Penambah Stok Barang</a>
+                      <a href="/nambahstok" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Penambah Stok Barang</a>
                    </li>
                    <li>
-                    <a href="/output" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Pengambilan Stok Barang</a>
+                    <a href="/kurangstok" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Pengambilan Stok Barang</a>
                  </li>
                    <li>
-                      <a href="#" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Laporan Anomali Barang</a>
+                      <a href="/anomali" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Laporan Anomali Barang</a>
                    </li>
              </ul>
           </li>

@@ -7,11 +7,23 @@ Route::get('/', function () {
 });
 
 Route::get('/forminsert', function () {
-    return view('layout.formnewbarang');
+    return view('layout.databarang.formnewbarang');
 });
 
 Route::get('/tabelbarang', function () {
-    return view('layout.tabelbarang');
+    return view('layout.databarang.tabelbarang');
+});
+
+Route::get('/nambahstok', function () {
+    return view('layout.stokbarang.ambilstokbarang');
+});
+
+Route::get('/kurangstok', function () {
+    return view('layout.stokbarang.kurangstokbarang');
+});
+
+Route::get('/anomali', function () {
+    return view('layout.stokbarang.anomalibarang');
 });
 
 Route::get('/login', function () {
