@@ -38,7 +38,7 @@
                         <a href="/tabelbarang" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Table Barang</a>
                      </li>
                      <li>
-                      <a href="/output" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Pemasukan Barang Baru</a>
+                      <a href="/forminsert" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Pemasukan Barang Baru</a>
                    </li>
                   
                </ul>

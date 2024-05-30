@@ -6,8 +6,8 @@ Route::get('/', function () {
     return view('layout.dashboard');
 });
 
-Route::get('/output', function () {
-    return view('layout.keluar');
+Route::get('/forminsert', function () {
+    return view('layout.formnewbarang');
 });
 
 Route::get('/tabelbarang', function () {
