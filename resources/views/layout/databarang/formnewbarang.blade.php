@@ -22,14 +22,14 @@
                 <label class="text-md font-semibold" for="ketesediaan">Ketersedian :</label>
                 <fieldset class="flex justify-start">
                     <div class="flex items-center mb-4 mr-8">
-                      <input id="tersedia" type="radio" name="countries" value="USA" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300" checked>
+                      <input id="tersedia" type="radio" name="tersedia" value="tersedia" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300" checked>
                       <label for="tersedia" class="block ms-2  text-sm font-medium text-gray-900">
                         Tersedia
                       </label>
                     </div>
 
                     <div class="flex items-center mb-4">
-                        <input id="notersedia" type="radio" name="countries" value="USA" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300">
+                        <input id="notersedia" type="radio" name="tidak_tersedia" value="tidak_tersedia" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300">
                         <label for="notersedias" class="block ms-2  text-sm font-medium text-gray-900">
                           Tidak Tersedia
                         </label>

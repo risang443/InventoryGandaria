@@ -26,6 +26,10 @@ Route::get('/anomali', function () {
     return view('layout.stokbarang.anomalibarang');
 });
 
+Route::get('/stokmasukkeluar', function () {
+    return view('layout.stokbarang.formkeluarmasukstok');
+});
+
 Route::get('/login', function () {
     return view('login.login');
 });
