@@ -9,20 +9,19 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-
-     protected $primaryKey = 'id_barang';
-     public $incrementing = false;
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('id_barang');
+            $table->string('id_barang')->primary(); // Set id_barang as primary key
             $table->string('namabarang');
-            $table->string('kategori');
+            $table->unsignedBigInteger('kategori_id');
             $table->integer('harga');
             $table->enum('ketersedian',['tersedia','tidak_tersedia']);
             $table->integer('stok')->default(0);
             $table->timestamps();
+
+            // Foreign key constraint
+            $table->foreign('kategori_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

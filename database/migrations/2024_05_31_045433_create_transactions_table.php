@@ -14,11 +14,14 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_barang')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('id_barang');
             $table->enum('tipe',['masuk','keluar']);
             $table->integer('stok');
-            $table->timestamps('tanggal_transaksi');
+            $table->date('tanggalTransaksi');
             $table->timestamps();
+
+            // Foreign key constraint
+            $table->foreign('id_barang')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
