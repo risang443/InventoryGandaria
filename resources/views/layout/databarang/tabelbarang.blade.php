@@ -31,110 +31,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hidden">
+                    @foreach ($variable as $item)
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Nike Air Force 1
+                            {{$item->namabarang}}
                         </th>
                         
                         <td class="px-6 py-4">
-                            Sneakers
+                            {{$item->kategori->name}}
                         </td>
                         <td class="px-6 py-4">
-                            Rp.3500000
+                            {{$item->harga}}
                         </td>
                         <td class="px-6 py-4">
-                            Tersedia
+                            {{$item->ketersedian}}
                         </td>
                         <td class="px-6 py-4">
-                            20
+                            {{$item->stok}}
                         </td>
                         <td class="px-6 py-4">
-                            <Button class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Modifikasi</Button>
+                            <a href="/formupdatebarang" class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Modifikasi</a>
                         </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Nike Air Force 1
-                        </th>
-                        <td class="px-6 py-4">
-                            Sneakers
-                        </td>
-                        <td class="px-6 py-4">
-                            Rp.3500000
-                        </td>
-                        <td class="px-6 py-4">
-                            Tersedia
-                        </td>
-                        <td class="px-6 py-4">
-                            20
-                        </td>
-                        <td class="px-6 py-4">
-                            <Button class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Modifikasi</Button>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Nike Air Force 1
-                        </th>
-                        
-                        <td class="px-6 py-4">
-                            Sneakers
-                        </td>
-                        <td class="px-6 py-4">
-                            Rp.3500000
-                        </td>
-                        <td class="px-6 py-4">
-                            Tersedia
-                        </td>
-                        <td class="px-6 py-4">
-                            20
-                        </td>
-                        <td class="px-6 py-4">
-                            <Button class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Modifikasi</Button>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Nike Air Force 1
-                        </th>
-                        
-                        <td class="px-6 py-4">
-                            Sneakers
-                        </td>
-                        <td class="px-6 py-4">
-                            Rp.3500000
-                        </td>
-                        <td class="px-6 py-4">
-                            Tersedia
-                        </td>
-                        <td class="px-6 py-4">
-                            20
-                        </td>
-                        <td class="px-6 py-4">
-                            <Button class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Modifikasi</Button>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Nike Air Force 1
-                        </th>
+                    </tr>   
+                    @endforeach
                     
-                        <td class="px-6 py-4">
-                            Sneakers
-                        </td>
-                        <td class="px-6 py-4">
-                            Rp.3500000
-                        </td>
-                        <td class="px-6 py-4">
-                            Tersedia
-                        </td>
-                        <td class="px-6 py-4">
-                            20
-                        </td>
-                        <td class="px-6 py-4">
-                            <Button class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Modifikasi</Button>
-                        </td>
-                    </tr>
+                
                 </tbody>
             </table>
 </div>

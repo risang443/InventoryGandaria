@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,9 +11,7 @@ Route::get('/forminsert', function () {
     return view('layout.databarang.formnewbarang');
 });
 
-Route::get('/tabelbarang', function () {
-    return view('layout.databarang.tabelbarang');
-});
+Route::get('/tabelbarang', [ProductController::class,"index"]);
 
 Route::get('/nambahstok', function () {
     return view('layout.stokbarang.ambilstokbarang');
@@ -28,6 +27,10 @@ Route::get('/anomali', function () {
 
 Route::get('/stokmasukkeluar', function () {
     return view('layout.stokbarang.formkeluarmasukstok');
+});
+
+Route::get('/formupdatebarang', function () {
+    return view('layout.databarang.formupdatebarang');
 });
 
 Route::get('/login', function () {

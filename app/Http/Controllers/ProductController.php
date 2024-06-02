@@ -35,4 +35,31 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')->with('success', 'Product berhasil ditambahkan.');
     }
+
+    public function updateKetersediaan(Request $request, $id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            return response()->json(['error' => 'Product not found'], 404);
+        }
+
+        $ketersediaan = $request->input('ketersediaan');
+
+        if (!in_array($ketersediaan, ['tersedia', 'tidak_tersedia'])) {
+            return response()->json(['error' => 'Invalid ketersediaan value'], 422);
+        }
+
+        $product->ketersediaan = $ketersediaan;
+        $product->save();
+
+        return response()->json(['message' => 'Ketersediaan updated successfully']);
+    }
+
+    public function Index()
+    {
+        $variable = product::with("kategori")->get();
+
+        return view("layout.databarang.tabelbarang", compact("variable"));
+    }
 }
