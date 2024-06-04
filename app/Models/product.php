@@ -1,7 +1,6 @@
 <?php
-
 namespace App\Models;
-use App\Http\Controllers\TransactionController;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,11 +8,8 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id_barang';
-    public $incrementing = false;
-
     protected $fillable = [
-        'id_barang', 'namabarang', 'kategori_id', 'harga', 'ketersedian', 'stok'
+        'id', 'namabarang', 'kategori_id', 'harga', 'ketersediaan', 'stok'
     ];
 
     public function kategori()
@@ -23,6 +19,6 @@ class Product extends Model
 
     public function transactions()
     {
-        return $this->hasMany(Transaction::class, 'id_barang');
+        return $this->hasMany(Transaction::class, 'id');
     }
 }

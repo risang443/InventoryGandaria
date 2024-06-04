@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Product;
@@ -7,59 +6,61 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function create()
-    {
-        $categories = \App\Models\Category::all();
-        return view('products.create', compact('categories'));
-    }
-
     public function store(Request $request)
     {
         $request->validate([
-            'id_barang' => 'equired|string|unique:products',
-            'namabarang' => 'equired|string',
-            'kategori_id' => 'equired|exists:categories,id',
-            'harga' => 'equired|integer',
-            'ketersedian' => 'equired|in:tersedia,tidak_tersedia',
-            'tok' => 'equired|integer|min:0',
+            'namabarang' => 'required|string|max:255',
+            'kategori_id' => 'required|integer',
+            'harga' => 'required|integer',
+            'ketersediaan' => 'required|string|in:tersedia,tidak_tersedia',
+            'stok' => 'required|integer',
         ]);
 
         $product = new Product();
-        $product->id_barang = $request->id_barang;
         $product->namabarang = $request->namabarang;
         $product->kategori_id = $request->kategori_id;
         $product->harga = $request->harga;
-        $product->ketersedian = $request->ketersedian;
+        $product->ketersediaan = $request->ketersediaan; // Correct field name
         $product->stok = $request->stok;
         $product->save();
 
-        return redirect()->route('products.index')->with('success', 'Product berhasil ditambahkan.');
+        return redirect()->back()->with('success', 'Sukses Menambah barang');
     }
 
-    public function updateKetersediaan(Request $request, $id)
+    public function edit($id)
     {
-        $product = Product::find($id);
+        // Find the product by its ID
+        $product = Product::findOrFail($id);
 
-        if (!$product) {
-            return response()->json(['error' => 'Product not found'], 404);
-        }
+        // Return the view with the product data
+        return view('layout.databarang.formupdatebarang', compact('product'));
+    }
 
-        $ketersediaan = $request->input('ketersediaan');
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'namabarang' => 'required|string|max:255',
+            'kategori_id' => 'required|integer',
+            'harga' => 'required|integer',
+            'ketersediaan' => 'required|string|in:tersedia,tidak_tersedia', // Correct field name
+            'stok' => 'required|integer',
+        ]);
 
-        if (!in_array($ketersediaan, ['tersedia', 'tidak_tersedia'])) {
-            return response()->json(['error' => 'Invalid ketersediaan value'], 422);
-        }
-
-        $product->ketersediaan = $ketersediaan;
+        $product = Product::findOrFail($id);
+        $product->namabarang = $request->namabarang;
+        $product->kategori_id = $request->kategori_id;
+        $product->harga = $request->harga;
+        $product->ketersediaan = $request->ketersediaan; // Correct field name
+        $product->stok = $request->stok;
         $product->save();
 
-        return response()->json(['message' => 'Ketersediaan updated successfully']);
+        return redirect()->back()->with('success', 'Sukses Mengupdate barang');
     }
 
-    public function Index()
+    public function index()
     {
-        $variable = product::with("kategori")->get();
+        $barang = Product::with("kategori")->get();
 
-        return view("layout.databarang.tabelbarang", compact("variable"));
+        return view("layout.databarang.tabelbarang", compact("barang"));
     }
 }

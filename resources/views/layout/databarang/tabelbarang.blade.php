@@ -31,31 +31,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($variable as $item)
+                    @foreach ($barang as $sepatu)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{$item->namabarang}}
+                            {{$sepatu->namabarang}}
                         </th>
                         
                         <td class="px-6 py-4">
-                            {{$item->kategori->name}}
+                            {{$sepatu->kategori->name}}
                         </td>
                         <td class="px-6 py-4">
-                            {{$item->harga}}
+                            {{$sepatu->harga}}
                         </td>
                         <td class="px-6 py-4">
-                            {{$item->ketersedian}}
+                            {{$sepatu->ketersedian}}
                         </td>
                         <td class="px-6 py-4">
-                            {{$item->stok}}
+                            {{$sepatu->stok}}
                         </td>
                         <td class="px-6 py-4">
-                            <a href="/formupdatebarang" class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Modifikasi</a>
+                            <a href="{{ url('formupdatebarang/'.$sepatu->id) }}" class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Modifikasi</a>
                         </td>
                     </tr>   
                     @endforeach
-                    
-                
                 </tbody>
             </table>
 </div>
