@@ -1,6 +1,5 @@
 @extends('app')
 @section('content')
-
 <div class="p-4 ml-64 bg-[#A7CCED]">
 
     <div class="mx-10 mb-5 p-8 w-lg bg-[#3a57b4] rounded-md flex justify-center">
@@ -30,7 +29,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody class="text-black font-mediumS">
+                <tbody>
                     @foreach ($barang as $sepatu)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -41,10 +40,10 @@
                             {{$sepatu->kategori->name}}
                         </td>
                         <td class="px-6 py-4">
-                            {{ 'Rp ' . number_format($sepatu->harga, 0, ',', '.') }}
+                            {{$sepatu->harga}}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $sepatu->ketersediaan == 'tersedia' ? 'Tersedia' : 'Tidak Tersedia' }}
+                            {{$sepatu->ketersedian}}
                         </td>
                         <td class="px-6 py-4">
                             {{$sepatu->stok}}
@@ -58,10 +57,4 @@
             </table>
 </div>
 </div>
-<script>
-    var msg = '{{Session::get('alert')}}';
-    var exist = '{{Session::has('alert')}}';
-    if(exist){
-      alert(msg);
-    }
-  </script>
+</div>

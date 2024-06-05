@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,15 +13,10 @@ Route::post('/forminsert', [ProductController::class, 'store'])->name('product.s
 Route::get('/forminsert', function () {
     return view('layout.databarang.formnewbarang');
 });
-Route::get('/tabelbarang', [ProductController::class,"index"]);
+Route::get('/tabelbarang', [ProductController::class,"index"])->name('product.index');
 
-Route::get('/nambahstok', function () {
-    return view('layout.stokbarang.ambilstokbarang');
-});
+Route::get('/stok',[TransactionController::class,"indextransaksi"] );
 
-Route::get('/kurangstok', function () {
-    return view('layout.stokbarang.kurangstokbarang');
-});
 
 Route::get('/anomali', function () {
     return view('layout.stokbarang.anomalibarang');

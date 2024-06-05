@@ -57,4 +57,12 @@ class TransactionController extends Controller
 
         return redirect()->back()->with('success', 'Stok berhasil dikurangi.');
     }
+
+    public function indextransaksi()
+    {
+        $barang = Product::with("kategori")->get();
+
+        return view("layout.stokbarang.stokbarang", compact("barang"));
+    }
+    
 }

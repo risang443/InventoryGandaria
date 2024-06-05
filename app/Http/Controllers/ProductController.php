@@ -24,7 +24,7 @@ class ProductController extends Controller
         $product->stok = $request->stok;
         $product->save();
 
-        return redirect()->back()->with('success', 'Sukses Menambah barang');
+        return redirect()->route('product.index')->with('alert', 'Sukses Menambah barang');
     }
 
     public function edit($id)
@@ -54,7 +54,7 @@ class ProductController extends Controller
         $product->stok = $request->stok;
         $product->save();
 
-        return redirect()->back()->with('success', 'Sukses Mengupdate barang');
+        return redirect()->route('product.index')->with('alert', 'Sukses Mengupdate barang');
     }
 
     public function index()
