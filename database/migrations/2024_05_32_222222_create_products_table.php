@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('namabarang');
             $table->unsignedBigInteger('kategori_id');
             $table->integer('harga');
-            $table->enum('ketersedian',['tersedia','tidak_tersedia']);
+            $table->enum('ketersediaan',['tersedia','tidak_tersedia']);
             $table->integer('stok')->default(0);
             $table->timestamps();
 

@@ -43,13 +43,29 @@
                             {{$sepatu->harga}}
                         </td>
                         <td class="px-6 py-4">
-                            {{$sepatu->ketersedian}}
+                            {{ $sepatu->ketersediaan == 'tersedia' ? 'Tersedia' : 'Tidak Tersedia' }}
                         </td>
                         <td class="px-6 py-4">
                             {{$sepatu->stok}}
                         </td>
                         <td class="px-6 py-4">
-                            <a href="{{ url('formupdatebarang/'.$sepatu->id) }}" class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Modifikasi</a>
+                           <!-- Tombol untuk Menambah Stok -->
+                            <form action="{{ route('addStock') }}" method="POST" class="inline-block">
+                                @csrf
+                                <input type="hidden" name="id_barang" value="{{ $sepatu->id }}">
+                                <input type="hidden" name="tipe" value="masuk">
+                                <input type="number" name="stok" class="w-20 p-1 rounded-md mr-2" min="1" placeholder="-">
+                                <button type="submit" class="font-sans font-semibold bg-green-700 text-white p-2 rounded-md mr-2">Tambah Stok</button>
+                            </form>
+                            
+                            <!-- Tombol untuk Mengurangi Stok -->
+                            <form action="{{ route('reduceStock') }}" method="POST" class="inline-block">
+                                @csrf
+                                <input type="hidden" name="id_barang" value="{{ $sepatu->id }}">
+                                <input type="hidden" name="tipe" value="keluar">
+                                <input type="number" name="stok" class="w-20 p-1 rounded-md mr-2" min="1" placeholder="-">
+                                <button type="submit" class="font-sans font-semibold bg-red-700 text-white p-2 rounded-md">Kurangi Stok</button>
+                            </form>
                         </td>
                     </tr>   
                     @endforeach
@@ -58,3 +74,16 @@
 </div>
 </div>
 </div>
+
+@if (session('success'))
+<script>
+    alert('{{ session('success') }}');
+</script>
+@endif
+
+@if (session('error'))
+<script>
+    alert('{{ session('error') }}');
+</script>
+@endif
+@endsection

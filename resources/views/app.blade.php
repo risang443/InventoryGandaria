@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{ url('image/sepatu1.jpg') }}">
+   <link rel="stylesheet" type="text/css" href="{{ url('css/style.css') }}">
+
     <title>Gandaria Sepatu</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
@@ -88,6 +91,14 @@
    @yield('content') 
 </div>
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 {{-- Isi End --}}
 </body>
 </html>

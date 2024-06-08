@@ -10,7 +10,7 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_barang', 'tipe', 'stok'
+        'id_barang', 'tipe', 'stok', 'tanggalTransaksi'
     ];
 
     public function product()
