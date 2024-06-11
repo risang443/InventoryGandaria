@@ -63,7 +63,7 @@
                    </li>
                    
                    <li>
-                      <a href="/anomali" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Laporan Anomali Barang</a>
+                      <a href="/opname" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-black">Laporan Anomali Barang</a>
                    </li>
              </ul>
           </li>
