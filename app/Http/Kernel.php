@@ -63,7 +63,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         // Register your custom middleware
-        'superadmin' => \App\Http\Middleware\SuperAdminMiddleware::class,
-        'admin' => \App\Http\Middleware\AdminMiddleware::class,
+        
     ];
 }
