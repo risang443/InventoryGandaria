@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
-
+use PDF;
 class TransactionController extends Controller
 {
     public function addStock(Request $request)
@@ -76,5 +76,14 @@ public function reduceStock(Request $request)
         $outOfStock = Product::where('stok', '=', 0)->count();
 
         return view('layout.dashboard', compact('totalStock', 'totalJenisSepatu', 'almostOutOfStock', 'outOfStock'));
+    }
+
+    public function exportPdf()
+    {
+        $transactions = Transaction::all();
+        
+        $pdf = PDF::loadView('pdf.transactionPDF', compact('transactions'));
+        
+        return $pdf->download('transactions.pdf');
     }
 }

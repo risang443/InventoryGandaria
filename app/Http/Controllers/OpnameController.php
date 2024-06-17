@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Anomalies;
 use Illuminate\Http\Request;
-
+use PDF;
 class OpnameController extends Controller
 {
     public function index()
@@ -55,5 +55,15 @@ class OpnameController extends Controller
 
         // Redirect kembali dengan pesan sukses
         return redirect()->route('opname.index')->with('success', 'Anomali barang berhasil dilaporkan.');
+    }
+
+
+    public function exportPdf()
+    {
+        $anomalies = Anomalies::with('product')->get();
+        
+        $pdf = PDF::loadView('pdf.anomaliPDF', compact('anomalies'));
+        
+        return $pdf->download('anomalies.pdf');
     }
 }

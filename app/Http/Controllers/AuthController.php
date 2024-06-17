@@ -4,32 +4,53 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Session;
 class AuthController extends Controller
 {
-    public function showLoginForm()
+
+    public function login()
     {
         return view('login.login');
     }
 
-    public function login(Request $request)
+    public function authenticate(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard');
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+        try{
+            $credentials = $request->validate([
+            'email' => ['required'],
+            'password' => ['required'],
         ]);
-    }
+    
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+    
+            $user = Auth::user();
 
-    public function logout()
+            return redirect('/dashboard')->with('success', 'Selamat Datang ');
+        }
+ 
+        Session::flash('status', 'failed');
+        Session::flash('message', 'Login Gagal!');
+        return redirect('/login')->with('error', 'Maaf Anda Belum Terdaftar di Sistem Kami');
+        }
+        catch(\Exception $e){
+            dd($e->getMessage() );
+        }
+    }
+        
+
+    public function logout(Request $request)
     {
+         
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('/login');
     }
+
+
+
+    
 }
 
 

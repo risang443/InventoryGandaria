@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-
+use PDF;
 class ProductController extends Controller
 {
     public function store(Request $request)
@@ -63,6 +63,14 @@ class ProductController extends Controller
 
         return view("layout.databarang.tabelbarang", compact("barang"));
     }
-
+    
+    public function exportPdf()
+    {
+        $products = Product::all();
+        
+        $pdf = PDF::loadView('pdf.productPDF', compact('products'));
+        
+        return $pdf->download('products.pdf');
+    }
     
 }
