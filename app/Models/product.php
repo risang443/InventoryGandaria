@@ -21,4 +21,15 @@ class Product extends Model
     {
         return $this->hasMany(Transaction::class, 'id');
     }
+
+    public function inputBarangs()
+    {
+        return $this->hasMany(InputBarang::class, 'id_barang');
+    }
+
+    public function outputBarangs()
+    {
+        return $this->hasMany(OutputBarang::class, 'id_barang');
+    }
+
 }

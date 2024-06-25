@@ -2,10 +2,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use PDF;
 class ProductController extends Controller
 {
+
+    public function create()
+    {
+        $categories = Category::all();
+
+        return view('layout.databarang.formnewbarang', compact('categories'));
+    }
     public function store(Request $request)
     {
         $request->validate([
@@ -31,9 +39,9 @@ class ProductController extends Controller
     {
         // Find the product by its ID
         $product = Product::findOrFail($id);
-
+        $categories = Category::all();
         // Return the view with the product data
-        return view('layout.databarang.formupdatebarang', compact('product'));
+        return view('layout.databarang.formupdatebarang', compact('product','categories'));
     }
 
     public function update(Request $request, $id)

@@ -4,7 +4,7 @@
 
 <div class="p-4 ml-64 bg-[#A7CCED]">
     <div class="mx-10 mb-5 p-8 w-lg bg-[#3a57b4] rounded-md flex justify-center items-center">
-        <h1 class="text-2xl text-white font-bold">Laporan Anomali Barang</h1>
+        <h1 class="text-2xl text-white font-bold">Stok OPName</h1>
     </div>
     <div class="flex justify-end">
         <div class="mt-7 mb-2 flex">
@@ -21,7 +21,7 @@
                 <tr>
                     <th scope="col" class="px-6 py-3">Nama Barang</th>
                     <th scope="col" class="px-6 py-3">Status</th>
-                    <th scope="col" class="px-6 py-3">Quantity</th>
+                    <th scope="col" class="px-6 py-3">Jumlah Dikurangi</th>
                     <th scope="col" class="px-6 py-3">Tanggal Kejadian</th>
                     <th scope="col" class="px-6 py-3">Keterangan</th>
                 </tr>
