@@ -21,7 +21,7 @@ class OutputBarangController extends Controller
     {
         $validatedData = $request->validate([
             'id_barang' => 'required|exists:products,id',
-            'costumers_id' => 'required|exists:customers,id',
+            'costumers_id' => 'required|exists:costumers,id',
             'jumlah' => 'required|integer',
             'tanggal_output' => 'required|date',
             'keterangan' => 'required|string',

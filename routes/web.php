@@ -24,9 +24,15 @@ Route::middleware(['auth','superadmin'])->group(function () {
     Route::get('/suppliers', [SupplierController::class, 'index'])->name('suppliers.index');
     Route::get('/supplier/create', [SupplierController::class, 'create'])->name('supplier.create');
     Route::post('/supplier/store', [SupplierController::class, 'store'])->name('supplier.store');
+    Route::get('/supplier/{id}/edit', [SupplierController::class, 'edit'])->name('supplier.edit');
+    Route::put('/supplier/{id}', [SupplierController::class, 'update'])->name('supplier.update');
+
     Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
     Route::get('/customer/create', [CustomerController::class, 'create'])->name('customer.create');
     Route::post('/customer/store', [CustomerController::class, 'store'])->name('customer.store');
+    Route::get('/customer/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
+    Route::put('/customer/{id}', [CustomerController::class, 'update'])->name('customer.update');
+
 });
 
 Route::middleware(['auth'])->group(function () {

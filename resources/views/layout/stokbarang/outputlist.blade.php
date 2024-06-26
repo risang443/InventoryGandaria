@@ -8,7 +8,7 @@
         <h1 class="text-2xl text-white font-bold">Tabel Output Barang</h1>
     </div>
     <div class="mt-7 mb-4 flex justify-end">
-        <a href="/output-barang/create" class="text-white bg-blue-900 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 me-2 focus:outline-none">Keluar Stok Barang</a>
+        <a href="/output-barang/create" class="text-white bg-blue-700 hover:text-gray-900 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Keluar Stok Barang</a>
     </div>
     <div class="relative overflow-x-auto w-full rounded-md">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 rounded-md">
@@ -51,8 +51,10 @@
                         {{ \Carbon\Carbon::parse($item->tanggal_output)->format('d-m-Y') }}
                     </td>
                     <td class="px-6 py-4">
-                        @if($item->fotoInvoiceOutput)
-                            <img src="{{ Storage::url($item->fotoInvoiceOutput) }}" alt="Gambar Barang" class="w-20 h-20 object-cover">
+                        @if ($item->fotoInvoiceOutput === 'Tidak memiliki Gambar')
+                            Tidak memiliki Gambar
+                        @elseif ($item->fotoInvoiceOutput)
+                            <img src="{{ asset('storage/' . $item->fotoInvoiceOutput) }}" alt="Gambar Barang" class="w-20 h-20 object-cover">
                         @else
                             Tidak ada gambar
                         @endif

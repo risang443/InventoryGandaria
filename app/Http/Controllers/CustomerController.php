@@ -24,6 +24,26 @@ class CustomerController extends Controller
 
         return redirect()->route('customers.index')->with('alert', 'Customer berhasil ditambahkan.');
     }
+
+    public function edit($id)
+    {
+        $customer = Costumer::findOrFail($id);
+        return view('layout.dataorang.InputCustomer', compact('customer'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'notelp' => 'required|string|max:20',
+            'alamat' => 'required|string',
+        ]);
+
+        $customer = Costumer::findOrFail($id);
+        $customer->update($validatedData);
+
+        return redirect()->route('customers.index')->with('alert1', 'Data customer berhasil diupdate.');
+    }
     public function index()
     {
         $customers = Costumer::all(); // Mengambil semua data customer dari tabel

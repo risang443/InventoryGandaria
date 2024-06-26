@@ -7,7 +7,7 @@
         <h1 class="text-2xl text-white font-bold">Data Supplier Sepatu</h1>
     </div>
     <div class="mt-7 mb-4 flex justify-end">
-        <a href="/supplier/create" id="" class="text-white bg-blue-900 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 me-2 focus:outline-none">Input Data Supplier</a>
+        <a href="/supplier/create" id="" class="text-white bg-blue-700 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Input Data Supplier</a>
     </div>
     <div class="relative overflow-x-auto w-full rounded-md">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 rounded-md">
@@ -17,6 +17,7 @@
                     <th scope="col" class="px-6 py-3">Nama Supplier</th>
                     <th scope="col" class="px-6 py-3">No. Telepon</th>
                     <th scope="col" class="px-6 py-3">Alamat</th>
+                    <th scope="col" class="px-6 py-3">Aksi</th>
                 </tr>
             </thead>
             <tbody class="text-black font-medium">
@@ -34,6 +35,9 @@
                     <td class="px-6 py-4">
                         {{ $supplier->alamat }}
                     </td>
+                    <td class="px-6 py-4">
+                        <a href="{{ route('supplier.edit', $supplier->id) }}" class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Edit</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -43,6 +47,12 @@
 <script>
     var msg = '{{ Session::get('alert') }}';
     var exist = '{{ Session::has('alert') }}';
+    if (exist) {
+        alert(msg);
+    }
+
+    var msg = '{{ Session::get('alert1') }}';
+    var exist = '{{ Session::has('alert1') }}';
     if (exist) {
         alert(msg);
     }

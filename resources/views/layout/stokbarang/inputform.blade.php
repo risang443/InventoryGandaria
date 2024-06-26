@@ -8,10 +8,10 @@
         <div class="mx-10 p-8 w-lg bg-[#66a6df] rounded-md">
             <form action="{{ route('input-barang.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <label class="text-md font-semibold" for="id_barang">Nama Barang :</label>
+                <label class="text-sm font-semibold" for="id_barang">Nama Barang :</label>
                 <div class="my-3">
-                    <input type="text" id="searchInputBarang" class="block w-full px-4 py-2 bg-white border border-gray-300 rounded-t-lg" placeholder="Search...">
-                    <select class="block w-full p-2 text-gray-900 border border-gray-300 rounded-b-lg bg-gray-50 text-base" name="id_barang" id="id_barang" required>
+                    <input type="text" id="searchInputBarang" class="block w-full text-sm px-4 py-2 bg-white border border-gray-300 rounded-t-lg" placeholder="Cari Barang Disini......">
+                    <select class="block w-full p-2 text-gray-900 border border-gray-300 rounded-b-lg bg-gray-50 text-sm" name="id_barang" id="id_barang" required>
                         <option class="p-2" value="">Pilih Nama Barang di Search Input</option>
                         @foreach($products as $product)
                             <option class="p-2" value="{{ $product->id }}" data-stok="{{ $product->stok }}">{{ $product->namabarang }}</option>
@@ -19,10 +19,10 @@
                     </select>
                 </div>
                 
-                <label class="text-md font-semibold" for="suppliers_id">Supplier ID :</label>
+                <label class="text-sm font-semibold" for="suppliers_id">Supplier ID :</label>
                 <div class="my-3">
-                    <input type="text" id="searchInputSupplier" class="block w-full px-4 py-2 bg-white border border-gray-300 rounded-t-lg" placeholder="Search...">
-                    <select class="block w-full p-2 text-gray-900 border border-gray-300 rounded-b-lg bg-gray-50 text-base" name="suppliers_id" id="suppliers_id" required>
+                    <input type="text" id="searchInputSupplier" class="block w-full text-sm px-4 py-2 bg-white border border-gray-300 rounded-t-lg" placeholder="Cari Supplier Disini.....">
+                    <select class="block w-full p-2 text-gray-900 border border-gray-300 rounded-b-lg bg-gray-50 text-sm" name="suppliers_id" id="suppliers_id" required>
                         <option value="">Pilih Supplier di Search Input</option>
                         @foreach($suppliers as $supplier)
                             <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
@@ -30,20 +30,20 @@
                     </select>
                 </div>
 
-                <label class="text-md font-semibold" for="stok">Stok Saat Ini :</label>
-                <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" type="text" id="stok" readonly>
+                <label class="text-sm font-semibold" for="stok">Stok Saat Ini :</label>
+                <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="text" id="stok" readonly>
 
-                <label class="text-md font-semibold" for="jumlah">Jumlah :</label>
-                <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" type="number" name="jumlah" id="jumlah" required value="{{ old('jumlah') }}">
+                <label class="text-sm font-semibold" for="jumlah">Jumlah :</label>
+                <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="number" name="jumlah" id="jumlah" required value="{{ old('jumlah') }}">
                 
-                <label class="text-md font-semibold" for="tanggal_input">Tanggal Input :</label>
-                <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" type="date" name="tanggal_input" id="tanggal_input" required value="{{ old('tanggal_input') }}">
+                <label class="text-sm font-semibold" for="tanggal_input">Tanggal Input :</label>
+                <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="date" name="tanggal_input" id="tanggal_input" required value="{{ old('tanggal_input') }}">
 
-                <label class="text-md font-semibold" for="fotoInvoiceInput">Upload Gambar :</label>
-                <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" type="file" name="fotoInvoiceInput" id="fotoInvoiceInput" accept="image/*">
+                <label class="text-sm font-semibold" for="fotoInvoiceInput">Upload Gambar :</label>
+                <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="file" name="fotoInvoiceInput" id="fotoInvoiceInput" accept="image/*">
 
-                <label class="text-md font-semibold" for="keterangan">Keterangan :</label>
-                <textarea class="block my-3 h-40 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" name="keterangan" id="keterangan" required>{{ old('keterangan') }}</textarea>
+                <label class="text-sm font-semibold" for="keterangan">Keterangan :</label>
+                <textarea class="block my-3 h-40 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" name="keterangan" id="keterangan" required>{{ old('keterangan') }}</textarea>
                 
                 <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center">Submit</button>
                 <a href="/inputbarang" type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center">Cancel</a>

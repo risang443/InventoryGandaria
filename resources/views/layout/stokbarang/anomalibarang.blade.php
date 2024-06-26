@@ -3,17 +3,17 @@
 @section('content')
 
 <div class="p-4 ml-64 bg-[#A7CCED]">
-    <div class="mx-10 mb-5 p-8 w-lg bg-[#3a57b4] rounded-md flex justify-center items-center">
+    <div class="mx-10 mb-2 p-8 w-lg bg-[#3a57b4] rounded-md flex justify-center items-center">
         <h1 class="text-2xl text-white font-bold">Stok OPName</h1>
     </div>
-    <div class="flex justify-end">
+    <div class="flex justify-end mb-3">
         <div class="mt-7 mb-2 flex">
-        <a href="{{ route('anomali.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 focus:outline-none">Lapor Anomali Barang</a>
+            <a href="{{ route('anomali.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Lapor Anomali Barang</a>
+        </div>
+        <div class="mt-7 mb-2 flex">
+            <a href="{{ route('export.anomalies.pdf') }}" id="printBtn" class="text-white bg-green-500 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Print Data Anomali Barang</a>
+        </div>
     </div>
-    <div class="mt-7 mb-2 flex">
-        <a href="{{ route('export.anomalies.pdf') }}" id="printBtn" class="text-white bg-green-500 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 focus:outline-none">Print Data Anomali Barang</a>
-    </div>
-</div>
     
     <div class="relative overflow-x-auto w-full rounded-md">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 rounded-md">

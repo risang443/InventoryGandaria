@@ -25,6 +25,29 @@ class SupplierController extends Controller
 
         return redirect()->route('suppliers.index')->with('alert', 'Data supplier berhasil ditambahkan.');
     }
+
+    public function edit($id)
+{
+    $supplier = Supplier::findOrFail($id);
+    return view('layout.dataorang.InputSuplier', compact('supplier'));
+}
+
+public function update(Request $request, $id)
+{
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'notelp' => 'required|string|max:20',
+        'alamat' => 'required|string',
+        'namaperusahaan' => 'required|string|max:255',
+    ]);
+
+    $supplier = Supplier::findOrFail($id);
+    $supplier->update($validatedData);
+
+    return redirect()->route('suppliers.index')->with('alert1', 'Data supplier berhasil diupdate.');
+}
+
+
     public function index()
     {
         $suppliers = Supplier::all();

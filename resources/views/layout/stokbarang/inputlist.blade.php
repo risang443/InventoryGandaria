@@ -8,7 +8,7 @@
         <h1 class="text-2xl text-white font-bold">Tabel Input Barang</h1>
     </div>
     <div class="mt-7 mb-4 flex justify-end">
-        <a href="/input-barang/create" id="" class="text-white bg-blue-900 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 me-2 focus:outline-none">Masukan Stok Baru</a>
+        <a href="/input-barang/create" id="" class="text-white bg-blue-700 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Masukan Stok Baru</a>
     </div>
     <div class="relative overflow-x-auto w-full rounded-md">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 rounded-md">
@@ -53,7 +53,7 @@
                         @if ($item->fotoInvoiceInput === 'Tidak memiliki Gambar')
                             Tidak memiliki Gambar
                         @elseif ($item->fotoInvoiceInput)
-                            <img src="{{ Storage::url($item->fotoInvoiceInput) }}" alt="Gambar Barang" class="w-20 h-20 object-cover">
+                            <img src="{{ asset('storage/' . $item->fotoInvoiceInput) }}" alt="Gambar Barang" class="w-20 h-20 object-cover">
                         @else
                             Tidak ada gambar
                         @endif
