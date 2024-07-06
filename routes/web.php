@@ -26,7 +26,6 @@ Route::middleware(['auth','superadmin'])->group(function () {
     Route::post('/supplier/store', [SupplierController::class, 'store'])->name('supplier.store');
     Route::get('/supplier/{id}/edit', [SupplierController::class, 'edit'])->name('supplier.edit');
     Route::put('/supplier/{id}', [SupplierController::class, 'update'])->name('supplier.update');
-
     Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
     Route::get('/customer/create', [CustomerController::class, 'create'])->name('customer.create');
     Route::post('/customer/store', [CustomerController::class, 'store'])->name('customer.store');
@@ -38,19 +37,22 @@ Route::middleware(['auth','superadmin'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [TransactionController::class, 'index'])->name('dashboard');
     Route::get('/stok',[TransactionController::class,"indextransaksi"] );
-    Route::post('/add-stock', [TransactionController::class, 'addStock'])->name('addStock');
-    Route::post('/reduce-stock', [TransactionController::class, 'reduceStock'])->name('reduceStock');
+    Route::get('/tabelbarangInfo', [ProductController::class,"indexAdmin"])->name('product.indexAdmin');
     Route::get('/inputbarang', [InputBarangController::class, 'index'])->name('input-barang.index');
     Route::get('/input-barang/create', [InputBarangController::class, 'create'])->name('input-barang.create');
     Route::post('/input-barang', [InputBarangController::class, 'store'])->name('input-barang.store');
+    Route::get('input-barang/{id}/edit', [InputBarangController::class, 'edit'])->name('input-barang.edit');
+    Route::put('input-barang/{id}', [InputBarangController::class, 'update'])->name('input-barang.update');
     Route::get('/outputbarang', [OutputBarangController::class, 'index'])->name('output-barang.index');
     Route::get('/output-barang/create', [OutputBarangController::class, 'create'])->name('output-barang.create');
     Route::post('/output-barang', [OutputBarangController::class, 'store'])->name('output-barang.store');
+    Route::get('/output-barang/{id}/edit', [OutputBarangController::class, 'edit'])->name('output-barang.edit');
+    Route::put('/output-barang/{id}', [OutputBarangController::class, 'update'])->name('output-barang.update');
     Route::get('/opname', [OpnameController::class, 'index'])->name('opname.index');
     Route::get('/anomali/create', [OpnameController::class, 'create'])->name('anomali.create');
     Route::post('/anomali/store', [OpnameController::class, 'store'])->name('anomali.store');
-   
-    Route::get('/export/transactions/pdf', [TransactionController::class, 'exportPdf'])->name('export.transactions.pdf');
+    Route::get('opname/{id}/edit', [App\Http\Controllers\OpnameController::class, 'edit'])->name('opname.edit');
+    Route::put('opname/{id}', [App\Http\Controllers\OpnameController::class, 'update'])->name('opname.update');
     Route::get('/export/anomalies/pdf', [OpnameController::class, 'exportPdf'])->name('export.anomalies.pdf');
     Route::get('/logout',[AuthController::class,'logout'])->name('keluar');
 });

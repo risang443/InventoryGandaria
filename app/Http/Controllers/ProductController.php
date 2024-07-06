@@ -72,6 +72,12 @@ class ProductController extends Controller
         return view("layout.databarang.tabelbarang", compact("barang"));
     }
     
+    public function indexAdmin()
+    {
+        $barang = Product::with("kategori")->get();
+
+        return view("layout.databarang.tabelbarangadmin", compact("barang"));
+    }
     public function exportPdf()
     {
         $products = Product::all();

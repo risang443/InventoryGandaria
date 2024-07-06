@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Anomalies;
 use Illuminate\Http\Request;
-use PDF;
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class OpnameController extends Controller
 {
     public function index()
@@ -28,35 +30,77 @@ class OpnameController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi input form
-        $request->validate([
+        // Validasi input
+        $validatedData = $request->validate([
             'id_barang' => 'required|exists:products,id',
             'status' => 'required|string',
-            'quantity' => 'required|integer|min:1',
+            'store' => 'required|integer',
+            'occurred_at' => 'required|date',
+            'keterangan' => 'required|string',
+        ]);
+    
+        DB::transaction(function () use ($request, $validatedData) {
+            // Mengambil stok sebelumnya dari produk
+            $product = Product::find($request->id_barang);
+            $stock = $product->stok;
+    
+            // Ambil nilai 'store' yang sesuai dari tabel output_barang
+            $previousStore = 0;
+    
+            // Perbarui stok dengan rumus yang benar
+            $stock = ($stock + $previousStore)-$request->store;
+
+            // Tambahkan data ke tabel output_barang dan simpan nilai stock
+            Anomalies::create(array_merge($validatedData, ['stock' => $stock]));
+    
+            // Update stok di tabel products
+            $product->stok = $stock;
+            $product->save();
+        });
+    
+        return redirect()->route('opname.index')->with('alert', 'Data output barang berhasil ditambahkan dan stok diperbarui.');
+    }
+
+    public function edit($id)
+    {
+        $anomalies = Anomalies::findOrFail($id);
+        $products = Product::all();
+        return view('layout.stokbarang.editopnamebarang', compact('anomalies', 'products'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi input form
+        $validatedData = $request->validate([
+            'id_barang' => 'required|exists:products,id',
+            'status' => 'required|string',
+            'store' => 'required|integer',
             'occurred_at' => 'required|date',
             'keterangan' => 'required|string',
         ]);
 
-        // Mengambil produk yang terkait
-        $product = Product::find($request->id_barang);
+        DB::transaction(function () use ($request, $id, $validatedData) {
+            // Mengambil data output sebelumnya
+            $opname = Anomalies::findOrFail($id);
+            $product = Product::find($request->id_barang);
+            $stock = $product->stok;
 
-        // Mengurangi stok produk
-        $product->stok -= $request->quantity;
-        $product->save();
+            // Ambil nilai 'store' yang sesuai dari tabel output_barang
+            $previousStore = Anomalies::where('id', $opname->id)->value('store');
+            
+            // Perbarui stok dengan rumus yang benar
+            $stock = ($stock + $previousStore) - $request->store;
 
-        // Membuat entri baru di tabel opname
-        Anomalies::create([
-            'id_barang' => $request->id_barang,
-            'status' => $request->status,
-            'quantity' => $request->quantity,
-            'occurred_at' => $request->occurred_at,
-            'keterangan' => $request->keterangan,
-        ]);
+            // Update data di tabel output_barang
+            $opname->update(array_merge($validatedData, ['stock' => $stock]));
+        
+            // Update stok di tabel products
+            $product->stok = $stock;
+            $product->save();
+        });
 
-        // Redirect kembali dengan pesan sukses
-        return redirect()->route('opname.index')->with('success', 'Anomali barang berhasil dilaporkan.');
+        return redirect()->route('opname.index')->with('alert', 'Data output barang berhasil diperbarui dan stok diperbarui.');
     }
-
 
     public function exportPdf()
     {

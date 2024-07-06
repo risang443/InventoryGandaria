@@ -12,7 +12,8 @@ class OutputBarang extends Model
     protected $fillable = [
         'id_barang',
         'costumers_id',
-        'jumlah',
+        'stock',
+        'store',
         'tanggal_output',
         'fotoInvoiceOutput',
         'keterangan'

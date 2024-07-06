@@ -8,20 +8,20 @@
         <h1 class="text-2xl text-white font-bold">Tabel Output Barang</h1>
     </div>
     <div class="mt-7 mb-4 flex justify-end">
-        <a href="/output-barang/create" class="text-white bg-blue-700 hover:text-gray-900 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Keluar Stok Barang</a>
+        <a href="/output-barang/create" class="text-white bg-blue-700 hover:text-gray-900 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Keluar Stok Sepatu</a>
     </div>
     <div class="relative overflow-x-auto w-full rounded-md">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 rounded-md">
             <thead class="text-md text-white uppercase bg-headline">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Nama Barang
+                        Nama Sepatu
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Nama Customer
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Jumlah
+                        Jumlah Barang Keluar
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Tanggal Output
@@ -32,7 +32,9 @@
                     <th scope="col" class="px-6 py-3">
                         Keterangan
                     </th>
-
+                    <th scope="col" class="px-6 py-3">
+                        Aksi
+                    </th>
                 </tr>
             </thead>
             <tbody class="text-black font-medium">
@@ -44,8 +46,8 @@
                     <td class="px-6 py-4">
                         {{ $item->customer->name }}
                     </td>
-                    <td class="px-6 py-4">
-                        {{ $item->jumlah }}
+                    <td class="px-6 py-4 text-center">
+                        {{ $item->store }}
                     </td>
                     <td class="px-6 py-4">
                         {{ \Carbon\Carbon::parse($item->tanggal_output)->format('d-m-Y') }}
@@ -61,6 +63,9 @@
                     </td>
                     <td class="px-6 py-4">
                         {{ $item->keterangan }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="{{ route('output-barang.edit', $item->id) }}" class="font-sans font-semibold bg-blue-700 text-white p-2 rounded-md">Edit</a>
                     </td>
                 </tr>
                 @endforeach
@@ -83,11 +88,6 @@
     if (exist) {
         alert(msg);
     }
-
-    var msg = '{{ Session::get('alert') }}';
-    var exist = '{{ Session::has('alert') }}';
-    if (exist) {
-        alert(msg);
-    }
 </script>
+
 @endsection

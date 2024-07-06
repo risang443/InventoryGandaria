@@ -1,4 +1,3 @@
-
 @extends('app')
 @section('content')
 
@@ -8,10 +7,10 @@
     </div>
     <div class="flex justify-end mb-3">
         <div class="mt-7 mb-2 flex">
-            <a href="{{ route('anomali.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Lapor Anomali Barang</a>
+            <a href="{{ route('anomali.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Lapor OPName Baru</a>
         </div>
         <div class="mt-7 mb-2 flex">
-            <a href="{{ route('export.anomalies.pdf') }}" id="printBtn" class="text-white bg-green-500 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Print Data Anomali Barang</a>
+            <a href="{{ route('export.anomalies.pdf') }}" id="printBtn" class="text-white bg-green-500 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Print Data OPName</a>
         </div>
     </div>
     
@@ -19,11 +18,12 @@
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 rounded-md">
             <thead class="text-md text-white uppercase bg-headline">
                 <tr>
-                    <th scope="col" class="px-6 py-3">Nama Barang</th>
+                    <th scope="col" class="px-6 py-3">Nama Sepatu</th>
                     <th scope="col" class="px-6 py-3">Status</th>
                     <th scope="col" class="px-6 py-3">Jumlah Dikurangi</th>
                     <th scope="col" class="px-6 py-3">Tanggal Kejadian</th>
                     <th scope="col" class="px-6 py-3">Keterangan</th>
+                    <th scope="col" class="px-6 py-3">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,16 +32,19 @@
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ $opname->product->namabarang }}
                         </th>
-                        <td class="px-6 py-4">@if($opname->status === 'rusak')
+                        <td class=" text-gray-900 px-6 py-4">@if($opname->status === 'rusak')
                             Rusak
                         @elseif($opname->status === 'hilang')
                             Hilang
                         @else
                             Butuh Penjelasan
                         @endif</td>
-                        <td class="px-6 py-4">{{ $opname->quantity }}</td>
-                        <td class="px-6 py-4">{{ $opname->occurred_at }}</td>
-                        <td class="px-6 py-4">{{ $opname->keterangan }}</td>
+                        <td class=" text-gray-900 px-6 py-4">{{ $opname->store }}</td>
+                        <td class="text-gray-900 px-6 py-4">{{ $opname->occurred_at }}</td>
+                        <td class=" text-gray-900 px-6 py-4">{{ $opname->keterangan }}</td>
+                        <td class="text-gray-900 px-6 py-4">
+                            <a href="{{ route('opname.edit', $opname->id) }}" class="font-sans font-semibold bg-blue-700 text-white p-2  rounded-md">Edit</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

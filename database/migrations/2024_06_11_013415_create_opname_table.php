@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_barang');
             $table->string('status');
-            $table->integer('quantity');
+            $table->integer('stock')->default('0');
+            $table->integer('store')->default('0');
             $table->timestamp('occurred_at')->nullable(); // Mengizinkan tanggal yang ditentukan oleh penggunas
             $table->text('keterangan');
             $table->timestamps();

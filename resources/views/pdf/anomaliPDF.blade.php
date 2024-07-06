@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Anomaly Report</title>
+    <title>Laporan OPName Gandaria Sepatu</title>
     <style>
         table {
             width: 100%;
@@ -17,16 +17,16 @@
     </style>
 </head>
 <body>
-    <h1>Anomaly Report</h1>
+    <h1>Laporan OPName Gandaria Sepatu </h1>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Product Name</th>
-                <th>Status</th>
-                <th>Quantity</th>
-                <th>Occurred At</th>
-                <th>Description</th>
+                <th>Nama Sepatu</th>
+                <th>Status Sepatu</th>
+                <th>Jumlah  Sepatu Dikurangi</th>
+                <th>Tanggal Kejadian</th>
+                <th>Keterangan</th>
             </tr>
         </thead>
         <tbody>
@@ -34,8 +34,14 @@
                 <tr>
                     <td>{{ $anomaly->id }}</td>
                     <td>{{ $anomaly->product->namabarang }}</td>
-                    <td>{{ $anomaly->status }}</td>
-                    <td>{{ $anomaly->quantity }}</td>
+                    @if ($anomaly->status == "rusak")
+                    <td>Rusak</td>
+                    @elseif ($anomaly->status == "hilang")
+                    <td>Hilang</td>
+                    @else
+                    <td>Lainnya</td>
+                    @endif
+                    <td>{{ $anomaly->store }}</td>
                     <td>{{ $anomaly->occurred_at }}</td>
                     <td>{{ $anomaly->keterangan }}</td>
                 </tr>

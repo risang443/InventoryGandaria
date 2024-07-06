@@ -6,7 +6,7 @@
     {{-- Hero Dashboard Start--}}
     <div class="p-4 border-l-cyan-200 bg-[#63ADF2] rounded-md">
         <div class="flex flex-wrap justify-start items-center font-sans text-white ">
-            <h1 class="text-5xl flex w-full mb-3 font-bold">GANDARIAN SEPATU</h1>
+            <h1 class="text-5xl flex w-full mb-3 font-bold">GANDARIA SEPATU</h1>
             <p class="text-2xl flex w-full mb-2 font-medium">Selamat Datang di Dashboard Aplikasi Inventory Gandaria Sepatu</p>
             <p class="text-2xl flex font-medium">Aplikasi ini dapat membantu anda untuk mendapatkan informasi terhadap situasi stok sepatu yang akan dijual</p>
         </div>

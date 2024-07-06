@@ -13,7 +13,8 @@ class InputBarang extends Model
     protected $fillable = [
         'id_barang',
         'suppliers_id',
-        'jumlah',
+        'stock',
+        'store',
         'tanggal_input',
         'fotoInvoiceInput',
         'keterangan'

@@ -10,7 +10,7 @@ class Anomalies extends Model
     use HasFactory;
     protected $table = 'opname';
     protected $fillable = [
-        'id_barang', 'status', 'quantity', 'occurred_at', 'keterangan', 
+        'id_barang', 'status','stock','store', 'occurred_at', 'keterangan', 
     ];
 
     public function product()

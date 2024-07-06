@@ -3,7 +3,7 @@
 @section('content')
     <div class="p-4 ml-64 bg-[#A7CCED]">
         <div class="mx-10 mb-5 p-8 w-lg bg-[#3a57b4] rounded-md flex justify-center">
-            <h1 class="text-2xl text-white font-bold">Form Pengisian Output Barang</h1>
+            <h1 class="text-2xl text-white font-bold">Form Pengisian Output Sepatu</h1>
         </div>
         <div class="mx-10 p-8 w-lg bg-[#66a6df] rounded-md">
             <form action="{{ route('output-barang.store') }}" method="POST" enctype="multipart/form-data">
@@ -33,8 +33,8 @@
                 <label class="text-sm font-semibold" for="stok">Stok Saat Ini :</label>
                 <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="text" id="stok" readonly>
 
-                <label class="text-sm font-semibold" for="jumlah">Jumlah :</label>
-                <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="number" name="jumlah" id="jumlah" required value="{{ old('jumlah') }}">
+                <label class="text-sm font-semibold" for="jumlah">Jumlah Stok yang di Keluarkan:</label>
+                <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="number" name="store" id="store" required ">
                 
                 <label class="text-sm font-semibold" for="tanggal_output">Tanggal Output :</label>
                 <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="date" name="tanggal_output" id="tanggal_output" required value="{{ old('tanggal_output') }}">

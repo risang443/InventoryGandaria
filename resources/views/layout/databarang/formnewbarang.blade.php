@@ -23,12 +23,12 @@
                 <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="number" name="harga" id="harga" required>
                 
                 <label class="text-sm font-semibold" for="ketersediaan">Ketersediaan :</label>
-                <fieldset class="flex justify-start">
-                    <div class="flex items-center mb-4 mr-8">
+                <fieldset class="flex justify-start ">
+                    <div class="flex items-center mb-4 mr-8 mt-4">
                       <input id="tersedia" type="radio" name="ketersediaan" value="tersedia" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300" checked>
                       <label for="tersedia" class="block ms-2 text-sm font-medium text-gray-900">Tersedia</label>
                     </div>
-                    <div class="flex items-center mb-4">
+                    <div class="flex items-center mb-4 mt-4">
                         <input id="tidak_tersedia" type="radio" name="ketersediaan" value="tidak_tersedia" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300">
                         <label for="tidak_tersedia" class="block ms-2 text-sm font-medium text-gray-900">Tidak Tersedia</label>
                     </div>

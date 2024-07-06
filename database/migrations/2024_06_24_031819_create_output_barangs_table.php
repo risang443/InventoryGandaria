@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_barang');
             $table->foreignId('costumers_id')->constrained('costumers')->onDelete('cascade');
-            $table->integer('jumlah');
+            $table->integer('stock')->default('0');
+            $table->integer('store')->default('0');
             $table->date('tanggal_output');
             $table->string('fotoInvoiceOutput');
             $table->text('keterangan');
