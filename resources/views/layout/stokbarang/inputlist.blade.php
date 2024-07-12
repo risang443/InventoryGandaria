@@ -5,7 +5,7 @@
 <div class="p-4 ml-64 bg-[#A7CCED]">
 
     <div class="mx-10 mb-5 p-8 w-lg bg-[#3a57b4] rounded-md flex justify-center">
-        <h1 class="text-2xl text-white font-bold">Tabel Input Barang</h1>
+        <h1 class="text-2xl text-white font-bold">Tabel Penambahan Stok Barang</h1>
     </div>
     <div class="mt-7 mb-4 flex justify-end">
         <a href="/input-barang/create" id="" class="text-white bg-blue-700 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Masukan Stok Sepatu</a>
@@ -24,7 +24,7 @@
                         Jumlah Dimasukan
                     </th>
                     <th scope="col" class="px-5 py-3">
-                        Tanggal Input
+                        Tanggal 
                     </th>
                     <th scope="col" class="px-5 py-3">
                         Bukti Invoice

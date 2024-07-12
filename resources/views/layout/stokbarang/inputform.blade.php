@@ -3,7 +3,7 @@
 @section('content')
     <div class="p-4 ml-64 bg-[#A7CCED]">
         <div class="mx-10 mb-5 p-8 w-lg bg-[#3a57b4] rounded-md flex justify-center">
-            <h1 class="text-2xl text-white font-bold">Form Pengisian Stok Sepatu Baru</h1>
+            <h1 class="text-2xl text-white font-bold">Form Penambahan Stok Sepatu</h1>
         </div>
         <div class="mx-10 p-8 w-lg bg-[#66a6df] rounded-md">
             <form action="{{ route('input-barang.store') }}" method="POST" enctype="multipart/form-data">
@@ -45,8 +45,8 @@
                 <label class="text-sm font-semibold" for="keterangan">Keterangan :</label>
                 <textarea class="block my-3 h-40 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" name="keterangan" id="keterangan" required>{{ old('keterangan') }}</textarea>
                 
-                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center">Submit</button>
-                <a href="/inputbarang" type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center">Cancel</a>
+                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center">Tambahkan</button>
+                <a href="/inputbarang" type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center">Kembali</a>
             </form>
         </div>
     </div>

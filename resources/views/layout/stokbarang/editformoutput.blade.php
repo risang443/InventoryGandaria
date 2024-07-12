@@ -3,7 +3,7 @@
 @section('content')
 <div class="p-4 ml-64 bg-[#A7CCED]">
     <div class="mx-10 mb-5 p-8 w-lg bg-[#3a57b4] rounded-md flex justify-center">
-        <h1 class="text-2xl text-white font-bold">Edit Output Barang</h1>
+        <h1 class="text-2xl text-white font-bold">Pengubahan Data Keluar Stok Barang</h1>
     </div>
     <div class="mx-10 p-8 w-lg bg-[#66a6df] rounded-md">
         <form action="{{ route('output-barang.update', $outputBarang->id) }}" method="POST" enctype="multipart/form-data">
@@ -56,7 +56,7 @@
             <textarea class="block my-3 h-40 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" name="keterangan" id="keterangan" required>{{ $outputBarang->keterangan }}</textarea>
 
             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center">Update</button>
-            <a href="{{ route('output-barang.index') }}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center">Cancel</a>
+            <a href="{{ route('output-barang.index') }}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center">Kembali</a>
         </form>
     </div>
 </div>

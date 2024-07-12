@@ -9,9 +9,6 @@
         <div class="mt-7 mb-2 flex">
             <a href="{{ route('anomali.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Lapor OPName Baru</a>
         </div>
-        <div class="mt-7 mb-2 flex">
-            <a href="{{ route('export.anomalies.pdf') }}" id="printBtn" class="text-white bg-green-500 hover:bg-green-300 hover:text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Print Data OPName</a>
-        </div>
     </div>
     
     <div class="relative overflow-x-auto w-full rounded-md">
@@ -20,7 +17,7 @@
                 <tr>
                     <th scope="col" class="px-6 py-3">Nama Sepatu</th>
                     <th scope="col" class="px-6 py-3">Status</th>
-                    <th scope="col" class="px-6 py-3">Jumlah Dikurangi</th>
+                    <th scope="col" class="px-6 py-3">Jumlah</th>
                     <th scope="col" class="px-6 py-3">Tanggal Kejadian</th>
                     <th scope="col" class="px-6 py-3">Keterangan</th>
                     <th scope="col" class="px-6 py-3">Aksi</th>
