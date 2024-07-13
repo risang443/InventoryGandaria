@@ -4,7 +4,7 @@
 <div class="p-4 ml-64 bg-[#A7CCED]">
 
     <div class="mx-10 mb-5 p-8 w-lg bg-[#3a57b4] rounded-md flex justify-center">
-        <h1 class="text-2xl text-white font-bold">Tabel Gandaria Sepatu</h1>
+        <h1 class="text-2xl text-white font-bold">Tabel Data Sepatu Gandaria Sepatu</h1>
     </div>
         <div class="relative overflow-x-auto w-full rounded-md">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 rounded-md">

@@ -3,10 +3,10 @@
 @section('content')
     <div class="p-4 ml-64 bg-[#A7CCED]">
         <div class="mx-10 mb-5 p-8 w-lg bg-[#3a57b4] rounded-md flex justify-center">
-            <h1 class="text-2xl text-white font-bold">Form OPName Barang</h1>
+            <h1 class="text-2xl text-white font-bold">Form OPName Sepatu</h1>
         </div>
         <div class="mx-10 p-8 w-lg bg-[#66a6df] rounded-md">
-            <form action="{{ url('anomali/store') }}" method="POST">
+            <form action="{{ route("opname.store") }}" method="POST">
                 @csrf
                 <label class="text-sm font-semibold" for="id_barang">Nama Barang :</label>
                 <div class="my-3">
@@ -29,7 +29,7 @@
                 <label class="text-sm font-semibold" for="stok_awal">Stok Saat Ini :</label>
                 <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="number" id="stok_awal" readonly>
 
-                <label class="text-sm font-semibold" for="quantity">Jumlah Dikurangi :</label>
+                <label class="text-sm font-semibold" for="quantity">Jumlah Stok Opname :</label>
                 <input class="block my-3 w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500" type="number" name="store" id="store" required>
                 
                 <label class="text-sm font-semibold" for="occurred_at">Tanggal Kejadian :</label>

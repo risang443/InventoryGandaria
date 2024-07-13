@@ -7,7 +7,7 @@
     </div>
     <div class="flex justify-end mb-3">
         <div class="mt-7 mb-2 flex">
-            <a href="{{ route('anomali.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Lapor OPName Baru</a>
+            <a href="{{ route('opname.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 focus:outline-none">Lapor OPName Baru</a>
         </div>
     </div>
     

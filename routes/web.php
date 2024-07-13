@@ -49,8 +49,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/output-barang/{id}/edit', [OutputBarangController::class, 'edit'])->name('output-barang.edit');
     Route::put('/output-barang/{id}', [OutputBarangController::class, 'update'])->name('output-barang.update');
     Route::get('/opname', [OpnameController::class, 'index'])->name('opname.index');
-    Route::get('/anomali/create', [OpnameController::class, 'create'])->name('anomali.create');
-    Route::post('/anomali/store', [OpnameController::class, 'store'])->name('anomali.store');
+    Route::get('/opname/create', [OpnameController::class, 'create'])->name('opname.create');
+    Route::post('/opname/store', [OpnameController::class, 'store'])->name('opname.store');
     Route::get('opname/{id}/edit', [App\Http\Controllers\OpnameController::class, 'edit'])->name('opname.edit');
     Route::put('opname/{id}', [App\Http\Controllers\OpnameController::class, 'update'])->name('opname.update');
     Route::get('/export/anomalies/pdf', [OpnameController::class, 'exportPdf'])->name('export.anomalies.pdf');

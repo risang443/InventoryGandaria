@@ -8,7 +8,6 @@ use App\Models\Costumer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-
 class OutputBarangController extends Controller
 {
     public function create()
@@ -17,7 +16,6 @@ class OutputBarangController extends Controller
         $costumers = Costumer::all();
         return view('layout.stokbarang.outputform', compact('products', 'costumers'));
     }
-
     public function store(Request $request)
     {
         // Validasi input
@@ -28,38 +26,30 @@ class OutputBarangController extends Controller
             'tanggal_output' => 'required|date',
             'keterangan' => 'required|string',
             'fotoInvoiceOutput' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-    
+        ]);  
         DB::transaction(function () use ($request, $validatedData) {
             // Mengambil stok sebelumnya dari produk
             $product = Product::find($request->id_barang);
-            $stock = $product->stok;
-            
+            $stock = $product->stok;           
             // Ambil nilai 'store' yang sesuai dari tabel output_barang
-            $previousStore = 0;
-    
+            $previousStore = 0;   
             // Perbarui stok dengan rumus yang benar
-            $stock = ($stock + $previousStore)-$request->store;
-    
+            $stock = ($stock + $previousStore)-$request->store;  
             // Mengunggah gambar jika ada
             if ($request->hasFile('fotoInvoiceOutput')) {
                 $filePath = $request->file('fotoInvoiceOutput')->store('images');
                 $validatedData['fotoInvoiceOutput'] = $filePath;
             } else {
                 $validatedData['fotoInvoiceOutput'] = 'Tidak memiliki Gambar'; // Set default message
-            }
-    
+            }   
             // Tambahkan data ke tabel output_barang dan simpan nilai stock
-            OutputBarang::create(array_merge($validatedData, ['stock' => $stock]));
-    
+            OutputBarang::create(array_merge($validatedData, ['stock' => $stock]));    
             // Update stok di tabel products
             $product->stok = $stock;
             $product->save();
         });
-    
         return redirect()->route('output-barang.index')->with('alert', 'Data output barang berhasil ditambahkan dan stok diperbarui.');
     }
-
     public function edit($id)
     {
         $outputBarang = OutputBarang::findOrFail($id);
@@ -67,7 +57,6 @@ class OutputBarangController extends Controller
         $costumers = Costumer::all();
         return view('layout.stokbarang.editformoutput', compact('outputBarang', 'products', 'costumers'));
     }
-
     public function update(Request $request, $id)
     {
         // Validasi input
@@ -79,19 +68,15 @@ class OutputBarangController extends Controller
             'keterangan' => 'required|string',
             'fotoInvoiceOutput' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
         DB::transaction(function () use ($request, $id, $validatedData) {
             // Mengambil data output sebelumnya
             $outputBarang = OutputBarang::findOrFail($id);
             $product = Product::find($request->id_barang);
             $stock = $product->stok;
-
             // Ambil nilai 'store' yang sesuai dari tabel output_barang
             $previousStore = OutputBarang::where('id', $outputBarang->id)->value('store');
-            
             // Perbarui stok dengan rumus yang benar
             $stock = ($stock + $previousStore) - $request->store;
-
             // Mengunggah gambar jika ada
             if ($request->hasFile('fotoInvoiceOutput')) {
                 if ($outputBarang->fotoInvoiceOutput && $outputBarang->fotoInvoiceOutput != 'Tidak memiliki Gambar') {
@@ -102,10 +87,8 @@ class OutputBarangController extends Controller
             } else {
                 $validatedData['fotoInvoiceOutput'] = $outputBarang->fotoInvoiceOutput;
             }
-
             // Update data di tabel output_barang
             $outputBarang->update(array_merge($validatedData, ['stock' => $stock]));
-        
             // Update stok di tabel products
             $product->stok = $stock;
             $product->save();
@@ -113,7 +96,6 @@ class OutputBarangController extends Controller
 
         return redirect()->route('output-barang.index')->with('alert1', 'Data output barang berhasil diperbarui dan stok diperbarui.');
     }
-
     public function index()
     {
         $outputBarang = OutputBarang::with('product', 'customer')->get();
