@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SupplierController;
+
 Route::get('/', function () {
     return view('login.login');
 });
@@ -31,7 +32,6 @@ Route::middleware(['auth','superadmin'])->group(function () {
     Route::post('/customer/store', [CustomerController::class, 'store'])->name('customer.store');
     Route::get('/customer/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
     Route::put('/customer/{id}', [CustomerController::class, 'update'])->name('customer.update');
-
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -57,9 +57,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout',[AuthController::class,'logout'])->name('keluar');
 });
 
-
 Route::get('/login',[AuthController::class, 'login'] )->name('view.login');
 Route::post('/login', [AuthController::class, 'authenticate'] )->name('login');
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
